@@ -5,6 +5,12 @@ pipeline {
     }
 
     stages {
+        stage('Test') {
+            steps {
+                echo 'Testing'
+                sh 'python -m pytest -m health_test'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying'
