@@ -1,8 +1,7 @@
 import pytest
-from functional.tests.test_case import TestCase
 
 
-class TestHealth(TestCase):
+class TestHealth:
 
     @pytest.mark.health_test
     def test_health(self):

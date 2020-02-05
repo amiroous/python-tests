@@ -1,14 +1,14 @@
 pipeline {
 
-    agent any
+    agent {
+        dockerfile true
+    }
 
     stages {
-        stage('Orchestration') {
+        stage('Test') {
             steps {
-                echo 'Docker Compose'
-                sh '/usr/local/bin/docker-compose up -d selenium-hub'
-                sh '/usr/local/bin/docker-compose up -d chrome'
-                sh '/usr/local/bin/docker-compose up hotels-tests'
+                echo 'Testing'
+                sh 'python -m pytest -m health_test'
             }
         }
         stage('Deploy') {

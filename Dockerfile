@@ -16,4 +16,4 @@ WORKDIR /app/functional
 
 RUN pipenv install
 
-#CMD ["sh", "-c", "python", "-m" , "pytest", "-m", "health_test"]
+CMD ["sh", "-c", "python", "-m" , "pytest", "-m", "health_test"]
