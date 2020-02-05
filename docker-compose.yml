@@ -2,17 +2,17 @@ version: "3"
 
 services:
 
-  jenkins:
-    image: jenkinsci/blueocean
-    user: root
-    container_name: jenkins
-    ports:
-      - "7070:8080"
-      - "50000:50000"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-      - ./home:/home
-      - /var/run/docker.sock:/var/run/docker.sock
+#  jenkins:
+#    image: jenkinsci/blueocean
+#    user: root
+#    container_name: jenkins
+#    ports:
+#      - "7070:8080"
+#      - "50000:50000"
+#    volumes:
+#      - jenkins_home:/var/jenkins_home
+#      - ./home:/home
+#      - /var/run/docker.sock:/var/run/docker.sock
 
   selenium-hub:
     image: selenium/hub:3.141.59-zinc
@@ -43,6 +43,7 @@ services:
       - selenium-hub:hub
     networks:
       - hotels-test-network
+    command: ["python", "-m" , "pytest", "-m", "health_test"]
 
 networks:
   hotels-test-network:
