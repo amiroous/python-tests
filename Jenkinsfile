@@ -6,9 +6,9 @@ pipeline {
         stage('Orchestration') {
             steps {
                 echo 'Docker Compose'
-                sh 'docker-compose up -d selenium-hub'
-                sh 'docker-compose up -d chrome'
-                sh 'docker-compose up hotels-tests'
+                sh '/usr/local/bin/docker-compose up -d selenium-hub'
+                sh '/usr/local/bin/docker-compose up -d chrome'
+                sh '/usr/local/bin/docker-compose up hotels-tests'
             }
         }
         stage('Deploy') {
